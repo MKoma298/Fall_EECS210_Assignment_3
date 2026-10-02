@@ -14,7 +14,7 @@ Outputs: "There are __ emails to read"
 	 "Date: __"
 	 "There are __ emails to read"
 
-Code Sources: Chatgpt
+Code Sources: Gemini
 Name: Miakah Komardley
 Creation Date: Oct. 1st, 2026
 Revision Date: Oct. 1st, 2026
