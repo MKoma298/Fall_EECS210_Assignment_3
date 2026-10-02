@@ -190,42 +190,59 @@ public:
 int main() {
     CEOInboxSystem inbox;
 
-    // Example simulation commands matching the sample test file
-    // In a real file-reading implementation, you would read line by line using ifstream.
-    string commands[] = {
-        "EMAIL Peer,Can you help me on this?,12-01-2024",
-        "EMAIL OtherPerson,Try our product,12-19-2024",
-        "EMAIL Boss,Important,12-20-2024",
-        "EMAIL Subordinate,How do I handle this?,12-25-2024",
-        "EMAIL ImportantPerson,Health Insurance Enrollment,12-31-2024",
-        "EMAIL Boss,Never Mind,01-03-2025",
-        "COUNT",
-        "NEXT",
-        "READ",
-        "NEXT",
-        "READ",
-        "COUNT"
-    };
+    ifstream inputFiles("test.txt");
+    if (!inputFiles) {
+        cout << "Error opening input file." << endl:
+        return 1;
+    
+    }
+    
+    string cmd;
 
-    for (const string& cmd : commands) {
-        if (cmd.rfind("EMAIL", 0) == 0) {
-            // Parse comma-delimited fields: EMAIL <category>,<subject>,<date>
+    while(getline(inputFile, cmd)) {
+
+        if (cmd.rfind("Email", 0) == 0) {
             size_t firstComma = cmd.find(',');
             size_t secondComma = cmd.find(',', firstComma + 1);
 
+            if (firstComma == string::npos || secondComma == string::npos) {
+                cout << "Invalid email command." << endl;
+                continue;
+            
+            }
+
             string category = cmd.substr(6, firstComma - 6);
-            string subject = cmd.substr(firstComma + 1, secondComma - firstComma - 1);
+            string subject = cmd.substr(firstComma + 1, secondComma - firstComma -1
+            );
             string date = cmd.substr(secondComma + 1);
 
-            inbox.addEmail(category, subject, date);
-        } else if (cmd == "COUNT") {
+            if (catregory.empty() || subject.empty() || date.empty()) {
+                cou << "Invalid email data." << endl;
+                continue;
+
+            }
+
+            inbox.addEmail(catefory, subject, date);
+
+        }
+        else if (cmd == "COUNT") {
             inbox.displayCount();
-        } else if (cmd == "NEXT") {
+
+        }
+
+        else if (cmd == "NEXT") {
             inbox.displayNext();
-        } else if (cmd == "READ") {
+
+        }
+        else if (cmd == "READ") {
             inbox.readEmail();
+
+        }
+        else {
+            cout << "Unknown command: " << cmd << endl;
         }
     }
 
+    inputFile.close();
     return 0;
 }
