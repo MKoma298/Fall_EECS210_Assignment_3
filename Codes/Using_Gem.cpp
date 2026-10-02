@@ -1,3 +1,24 @@
+'''
+Prologue:
+Name: EECS 348 Assignment 3
+Desc.: Organies emails based on priority and date.
+Inputs:
+EMAIL
+COUNT
+NEXT
+READ
+Outputs: "There are __ emails to read"
+	 "Next email:"
+	 "Sender: __"
+	 "Subject: __"
+	 "Date: __"
+	 "There are __ emails to read"
+
+Code Sources: Chatgpt
+Name: Miakah Komardley
+Creation Date: Oct. 1st, 2026
+Revision Date: Oct. 1st, 2026
+'''
 #include <iostream>
 #include <string>
 #include <sstream>
